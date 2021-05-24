@@ -17,10 +17,12 @@ class MemeEditorviewController: UIViewController , UIImagePickerControllerDelega
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var toolBar: UIToolbar!
     
+    let TOP_TEXT = "TOP"
+    let BOTTOM_TEXT = "BOTTOM"
     var meme : Meme!
     var memedImage:UIImage!
-    let memeDelegateTop  = MemeTextFieldDelegate()
-    let memeDelegateBottom  = MemeTextFieldDelegate()
+    let memeDelegateTop  = TopMemeTextFieldDelegate()
+    let memeDelegateBottom  = BottomMemeTextFieldDelegate()
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black /* TODO: fill in appropriate UIColor */,
         NSAttributedString.Key.foregroundColor: UIColor.white /* TODO: fill in appropriate UIColor */,
@@ -37,13 +39,14 @@ class MemeEditorviewController: UIViewController , UIImagePickerControllerDelega
         topTextField.textAlignment = .center
         topTextField.delegate = memeDelegateTop
         bottomTextField.delegate = memeDelegateBottom
+        bottomTextField.autocorrectionType = .no
+        topTextField.autocorrectionType = .no
         setDefaultValues()
-        
     }
     
     func setDefaultValues () {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        topTextField.text = TOP_TEXT
+        bottomTextField.text = BOTTOM_TEXT
         memedImage = nil
         imagePickerView.image = nil
         meme = nil

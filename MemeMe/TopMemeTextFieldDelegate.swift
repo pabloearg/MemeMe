@@ -8,15 +8,18 @@
 import Foundation
 import UIKit
 
-class MemeTextFieldDelegate: NSObject, UITextFieldDelegate {
-        var isFirstTime = true
+class TopMemeTextFieldDelegate: NSObject, UITextFieldDelegate {
+    let TOP_TEXT = "TOP"
+    var isFirstTime = true
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if isFirstTime {
+        if textField.text == TOP_TEXT {
             textField.text = ""
         }
-        self.isFirstTime = false
-//        if textField.text!.isEmpty {
-//        }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text == "" {
+            textField.text = TOP_TEXT
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

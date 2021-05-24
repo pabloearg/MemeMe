@@ -18,12 +18,12 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZ0-S1-nVC">
                                 <rect key="frame" x="0.0" y="773" width="390" height="49"/>
                                 <items>
-                                    <barButtonItem title="Album" id="oWd-Ik-Qeu">
+                                    <barButtonItem title="Gallery" id="oWd-Ik-Qeu">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="jRh-0g-8iI"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Camera" id="kRf-SA-xRQ" userLabel="Camera">
+                                    <barButtonItem title="Camera" image="camera.fill" catalog="system" id="kRf-SA-xRQ" userLabel="Camera">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="b8J-H6-Xpj"/>
                                         </connections>
@@ -101,6 +101,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
     </resources>
 </document>
