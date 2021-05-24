@@ -1,6 +1,6 @@
 //
 //  Meme.swift
-//  pickImages
+//  MemeMe
 //
 //  Created by Pablo Arguimbau on 24/05/2021.
 //

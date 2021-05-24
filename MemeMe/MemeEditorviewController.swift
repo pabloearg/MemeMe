@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  pickImages
+//  MemeMe
 //
 //  Created by Pablo Arguimbau on 06/04/2021.
 //
@@ -38,6 +38,7 @@ class MemeEditorviewController: UIViewController , UIImagePickerControllerDelega
         topTextField.delegate = memeDelegateTop
         bottomTextField.delegate = memeDelegateBottom
         setDefaultValues()
+        
     }
     
     func setDefaultValues () {
@@ -89,7 +90,6 @@ class MemeEditorviewController: UIViewController , UIImagePickerControllerDelega
     }
     
     func subscribeToKeyboardNotifications() {
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -120,8 +120,8 @@ class MemeEditorviewController: UIViewController , UIImagePickerControllerDelega
     }
     
     func save() {
-            // Create the meme
-             meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        // Create the meme
+        meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
     }
     
     @IBAction func share(_ sender: UIBarButtonItem) {
@@ -132,21 +132,18 @@ class MemeEditorviewController: UIViewController , UIImagePickerControllerDelega
         
     }
     func generateMemedImage() -> UIImage {
-
+        save()
         // Hide toolbar and navbar
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.setToolbarHidden(false, animated: true)
-        
+        navBar.isHidden = true
+        toolBar.isHidden = true
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         memedImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        
         //Show toolbar and navbar
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationController?.setToolbarHidden(true, animated: true)
-
+        navBar.isHidden = false
+        toolBar.isHidden = false
         return memedImage
     }
     

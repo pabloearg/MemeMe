@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  pickImages
+//  MemeMe
 //
 //  Created by Pablo Arguimbau on 06/04/2021.
 //
